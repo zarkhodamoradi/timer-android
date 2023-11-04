@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ringActivity"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+<Space
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="3"/>
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="58dp"
+                android:layout_height="280dp"
+                android:layout_weight="10"
+                android:text="Stop"
+                android:background="@drawable/border"
+                android:textColor="@color/white"
+                android:textSize="50dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

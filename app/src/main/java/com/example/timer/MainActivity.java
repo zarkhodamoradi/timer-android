@@ -2,6 +2,8 @@ package com.example.timer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -33,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SetUpView();
-        ArrayList<String> Times = new ArrayList<String>((Arrays.asList("5", "10", "15", "20", "25", "30")));
-        ArrayAdapter<String> TimesAdapted = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Times);
-      //  TimesAdapted.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        MediaPlayer mediaPlayer= MediaPlayer.create(this, R.raw.be_happy);
+        ArrayList<String> Times = new ArrayList<String>((Arrays.asList("1","5", "10", "15", "20", "25", "30")));
+        ArrayAdapter<String> TimesAdapted = new ArrayAdapter<String>(this, R.layout.custom_spinner, Times);
+       TimesAdapted.setDropDownViewResource(R.layout.custom_spinner);
 
         spTimes.setAdapter(TimesAdapted);
         spTimes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -104,10 +107,15 @@ public class MainActivity extends AppCompatActivity {
                 txtShowTime.setText(String.format("%s%d : %s%d : %s%d", pm, Minute, ps, Second, pds ,DSecond));
                 if(running ) {
                     runningTime--;
-                    if(runningTime<=0) running= false ;
+                    if(runningTime<=0) {
+                        running = false;
+                        Intent intent = new Intent(MainActivity.this, ringActivity.class);
+                        startActivity(intent);
+
+                    }
 
                 }
-handler.postDelayed(this, 1000/60);
+handler.postDelayed(this, 1);
             }
         });
 //        handler.postDelayed(new Runnable() {
