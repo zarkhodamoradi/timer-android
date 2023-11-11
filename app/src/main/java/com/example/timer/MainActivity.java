@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         running = false;
                         Intent intent = new Intent(MainActivity.this, ringActivity.class);
                         startActivity(intent);
-
+                        runningTime = receivedTime * 3600;
                     }
 
                 }
@@ -144,6 +144,24 @@ handler.postDelayed(this, 1000/60);
 //        }, 10);
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        running = running ;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        running = running ;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        running = running ;
     }
 
     public void SetUpView() {
