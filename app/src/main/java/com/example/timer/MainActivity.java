@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, ringActivity.class);
                         startActivity(intent);
                         runningTime = receivedTime * 3600;
+                        btnStart.setText("Start");
                     }
 
                 }
